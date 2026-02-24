@@ -1,0 +1,7 @@
+predictions/*
+figures/*
+data/backup/*
+python/run_CNN_local.py
+R/5_birk.R
+R/6_hans.R
+R/2_models_fit.R
