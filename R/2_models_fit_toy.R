@@ -12,13 +12,11 @@ theme_set(theme_bw()+
                                                   color = "transparent"))
 )
 
-# isToy = TRUE 
+isToy = TRUE 
 rawdata <- readRDS("data/toydata.rds")
 
 
 for(.city in c("bergen","oslo")){
-  print(paste(ifelse(isToy, "Toy", "data"),"-",
-        .city))
 data <- rawdata %>% 
     mutate(yday = lubridate::yday(date)/365) %>% 
     filter(area==.city)%>%

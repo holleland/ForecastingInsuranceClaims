@@ -9,7 +9,7 @@ source("R/1_making_toydata.R")
 
 # Fit models:
 # -- Warning!!! require some time ---
-source("R/2_models_fit.R")
+source("R/2_models_fit_toy.R")
 
 
 # Run the CNN model in Python
