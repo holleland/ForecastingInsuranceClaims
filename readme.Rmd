@@ -7,7 +7,7 @@ output: github_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-This repository contains necessary code for reproducing results presented in the paper **Short-Term Management of Water-Damage Claim Risk Using Ensemble Precipitation Forecasts** by Håkon Otneim, Etienne Dunn-Sigouin, Sondre Hølleland, Mahsa Gorji and Geir Drage Berentsen. Since the insurance data is not publicly available, we have generated data from one of the models using the script *R/0_making_toydata.R*. This uses the estimated logistic regression model for Oslo and Bergen to generate a toy dataset. Thus, you will not be able to obtain the specific results, but you have a running example. 
+This repository contains necessary code for reproducing results presented in the paper by Otneim et. al (2026). Since the insurance data is not publicly available, we have generated data from one of the models using the script *R/0_making_toydata.R*. This uses the estimated logistic regression model for Oslo and Bergen to generate a toy dataset. Thus, you will not be able to reproduce the specific results in the paper, but you have a running example with similar similar properties to the real data. 
 
 The script *0_run_scripts.R* explains the order of how things should be run. The resulting predictions are stored the predictions folder and figures are stored in the figures folder. The script is included below. 
 
@@ -39,3 +39,15 @@ source("R/3_PRAUC_plots.R") # Takes a few minutes due to bootstrap
 source("R/4_reliability.R")
 
 ```
+
+## Precipitation data
+The 51 ensemble forecasts and observed rain are stored in *data/forecast_data.rds*. The column *obs* is observed rain from the ERA5-reanalysis aggregated over the two cities (as described in the paper), while the columns '1'-'51' are the ordered ensemble forecasts from European Centre for Medium Range Weather Forecasts (Buizza et al., 2018) obtained from the MARS archive (European Centre for Medium-Range Weather Forecasts (ECMWF), 2024). 
+
+
+## References
+
+- Buizza, R., Alonso Balmaseda, M., Brown, A., English, S. J., Forbes, R., Geer, A., Haiden, T., Leutbecher, M., Magnusson, L., Rodwell, M., Sleigh, M., Stockdale, T., Vitart, F., and Wedi, N.: The Development and Evaluation Process Followed at ECMWF to Upgrade the Integrated Forecasting System (IFS), ECMWF Technical Memorandum 829, European Centre for Medium-Range Weather Forecasts (ECMWF), [https://doi.org/10.21957/xzopnhty9](https://doi.org/10.21957/xzopnhty9), 2018.
+- European Centre for Medium-Range Weather Forecasts (ECMWF): Access to forecasts, [https://www.ecmwf.int/en/forecasts/accessing-forecasts](https://www.ecmwf.int/en/forecasts/accessing-forecasts), accessed: 2024-09-05, 2024.
+- Hersbach, H., Bell, B., Berrisford, P., Biavati, G., Horányi, A., Muñoz Sabater, J., Nicolas, J., Peubey, C., Radu, R., Rozum, I., Schepers, D., Simmons, A., Soci, C., Dee, D., and Thépaut, J.-N.: ERA5 hourly data on single levels from 1940 to present, [https://doi.org/10.24381/cds.adbb2d47](https://doi.org/10.24381/cds.adbb2d47), [data set], 2023.
+- Otneim, H., Dunn-Sigouin, E., Hølleland, S., Gorji, M., and Berentsen, G. D.: Short-Term Management of Water-Damage Claim Risk Using Ensemble Precipitation Forecasts, working paper, 2026.
+
