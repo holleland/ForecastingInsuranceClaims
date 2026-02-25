@@ -8,7 +8,7 @@ Toy = ifelse(isToy, "toy_","")
 
 # Get predictions: 
 pred <- lapply(c("bergen", "oslo"), function(.city){
-  readRDS(paste0("predictions/",ifelse(.isToy, "toy_",""), .city,".rds")) %>% 
+  readRDS(paste0("predictions/",ifelse(isToy, "toy_",""), .city,".rds")) %>% 
     mutate(area = .city)
 }) %>% bind_rows()
 

@@ -20,7 +20,7 @@ from tensorflow.random import set_seed
 
 
 # data: 
-data = pd.read_csv('/data/toy_train_bergen.csv',
+data = pd.read_csv('data/toy_train_bergen.csv',
                    sep = ";",decimal=",")
 Y_train = data["claim_cat"] == "many claims"
 X_train = data.drop(labels = ["claim_cat", "lead_time", "date", "area", "yday", "set","obs"],
@@ -30,7 +30,7 @@ X_train = np.expand_dims(X_train, axis=-1)
 
 
 # Prepare test data: 
-test = pd.read_csv('/data/toy_test_bergen.csv',
+test = pd.read_csv('data/toy_test_bergen.csv',
                    sep = ";",decimal=",")
 Y_test = test["claim_cat"] == "many claims"
 X_test = test.drop(labels = ["claim_cat", "lead_time", "date", 
@@ -129,22 +129,15 @@ predictions_prob = best_model.predict(X_test)
 
 # Convert predictions to a DataFrame
 predictions_df = pd.DataFrame(predictions_prob, columns=['Probability'])
-# Save the DataFrame to a CSV file
-#predictions_df.to_csv(
-    #'C:/Users/s15052/Dropbox/NHH/Prosjekter/ForecastingInsurance/predictions/CNN_1_bergen_test_without_splines.csv', 
-    #index=False)
-#predictions_df.to_csv(
-    #'C:/Users/s15052/Dropbox/NHH/Prosjekter/ForecastingInsurance/predictions/CNN_2_bergen_test_without_splines.csv', 
-   # index=False)
 predictions_df.to_csv(
-    '/predictions/toy_CNN_bergen_test.csv', 
+    'predictions/toy_CNN_bergen_test.csv', 
     index=False)
 
 
 insample_predictions_prob = best_model.predict(X_train)
 insample_predictions_df = pd.DataFrame(insample_predictions_prob, columns=['Probability'])
 insample_predictions_df.to_csv(
-    '/predictions/toy_CNN_bergen_train.csv', 
+    'predictions/toy_CNN_bergen_train.csv', 
     index=False)
 
 
@@ -153,7 +146,7 @@ insample_predictions_df.to_csv(
 CNN for Oslo no splines
 """
 # data: 
-data = pd.read_csv('/data/toy_train_oslo.csv',
+data = pd.read_csv('data/toy_train_oslo.csv',
                    sep = ";",decimal=",")
 Y_train = data["claim_cat"] == "many claims"
 X_train = data.drop(labels = ["claim_cat", "lead_time", "date", "area", "yday", "set","obs"],
@@ -163,7 +156,7 @@ X_train = np.expand_dims(X_train, axis=-1)
 
 
 # Prepare test data: 
-test = pd.read_csv('/data/toy_test_oslo.csv',
+test = pd.read_csv('data/toy_test_oslo.csv',
                    sep = ";",decimal=",")
 Y_test = test["claim_cat"] == "many claims"
 X_test = test.drop(labels = ["claim_cat", "lead_time", "date", "area", "yday", "set","obs"], 
@@ -265,18 +258,18 @@ predictions_prob = best_model.predict(X_test)
 predictions_df = pd.DataFrame(predictions_prob, columns=['Probability'])
 # Save the DataFrame to a CSV file
 #predictions_df.to_csv(
-#    'C:/Users/s15052/Dropbox/NHH/Prosjekter/ForecastingInsurance/predictions/CNN_1_oslo_test_without_splines.csv', 
+#    'C:/Users/s15052/Dropbox/NHH/Prosjekter/ForecastingInsurancepredictions/CNN_1_oslo_test_without_splines.csv', 
 #    index=False)
 #predictions_df.to_csv(
-#    'C:/Users/s15052/Dropbox/NHH/Prosjekter/ForecastingInsurance/predictions/CNN_2_oslo_test_without_splines.csv', 
+#    'C:/Users/s15052/Dropbox/NHH/Prosjekter/ForecastingInsurancepredictions/CNN_2_oslo_test_without_splines.csv', 
 #    index=False)
 predictions_df.to_csv(
-    '/predictions/toy_CNN_oslo_test.csv', 
+    'predictions/toy_CNN_oslo_test.csv', 
     index=False)
 
 
 insample_predictions_prob = best_model.predict(X_train)
 insample_predictions_df = pd.DataFrame(insample_predictions_prob, columns=['Probability'])
 insample_predictions_df.to_csv(
-    '/predictions/toy_CNN_oslo_train.csv', 
+    'predictions/toy_CNN_oslo_train.csv', 
     index=False)

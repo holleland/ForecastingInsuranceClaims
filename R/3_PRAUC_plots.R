@@ -2,12 +2,12 @@ rm(list=ls())
 library(tidyverse)
 
 # Toy data: 
-.isToy = TRUE
+isToy = TRUE
 Toy = ifelse(isToy, "toy_","")
 
 # Get predictions: 
 preds <- lapply(c("bergen", "oslo"), function(.city){
-  readRDS(paste0("predictions/",ifelse(.isToy, "toy_",""), .city,".rds")) %>% 
+  readRDS(paste0("predictions/",ifelse(isToy, "toy_",""), .city,".rds")) %>% 
     mutate(area = .city)
 }) %>% bind_rows()
 
