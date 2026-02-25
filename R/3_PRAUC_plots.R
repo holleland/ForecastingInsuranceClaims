@@ -2,7 +2,7 @@ rm(list=ls())
 library(tidyverse)
 
 # Toy data: 
-isToy = TRUE
+.isToy = TRUE
 Toy = ifelse(isToy, "toy_","")
 
 # Get predictions: 
