@@ -20,7 +20,7 @@ Reproducibility
 --------
 This repository contains necessary code for reproducing results presented in the paper by Otneim et. al (2026). Since we cannot share the insurance data, you will not be able to reproduce the specific results in the paper, but we have made a toy data set so that the code can be run with similar similar properties as one would get using the real data.  
 
-The script *0_run_scripts.R* explains the order of how things should be run. The resulting predictions are stored the predictions folder and figures are stored in the figures folder. Figures that are very specific to the insurance data is not included here (i.e. for the two named storms Birk and Hans) or the descriptive figures for the insurance data.
+The script *0_run_scripts.R* explains the order of how things should be run. The resulting predictions are stored the predictions folder and figures are stored in the figures folder. Figures that are very specific to the insurance data is not included here (i.e. for the two named storms Birk and Hans) or the descriptive figures for the insurance data. Some scripts are executed in Pyhon, and located in the folder called *python*. 
 
 Precipitation data
 --------
